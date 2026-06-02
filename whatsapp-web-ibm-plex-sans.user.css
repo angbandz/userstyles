@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           WhatsApp Web - IBM Plex Sans
 @namespace      github.com/angbandz/userstyles
-@version        1.0.0
-@description    Troca a fonte do WhatsApp Web para IBM Plex Sans
+@version        1.1.0
+@description    Troca a fonte do WhatsApp Web para IBM Plex Sans, com legibilidade ampliada sem alterar a estrutura visual
 @author         angbandz
 @license        MIT
 @preprocessor   default
@@ -24,7 +24,47 @@
   select,
   [role="textbox"],
   [contenteditable="true"],
-  * {
+  span,
+  p,
+  div[title],
+  div[aria-label] {
     font-family: "IBM Plex Sans", sans-serif !important;
+    font-variant-ligatures: common-ligatures contextual !important;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "kern" 1 !important;
+    text-rendering: optimizeLegibility !important;
+  }
+
+  /* Mensagens */
+  div.copyable-text,
+  div.copyable-text span,
+  div.copyable-text p,
+  span.selectable-text,
+  span.selectable-text span {
+    font-size: 15.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Caixa de digitação */
+  footer [contenteditable="true"],
+  footer [role="textbox"],
+  footer span.selectable-text,
+  footer span.selectable-text span {
+    font-size: 15.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Lista lateral de conversas e nomes */
+  [aria-label="Lista de conversas"] span,
+  [aria-label="Chat list"] span,
+  [role="grid"] span[title],
+  header span[title] {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Metadados: horário, avisos pequenos e textos auxiliares. Aumento discreto para não quebrar layout. */
+  div.copyable-text sub,
+  span[aria-label*=":"] {
+    font-size: 12.25px !important;
   }
 }
