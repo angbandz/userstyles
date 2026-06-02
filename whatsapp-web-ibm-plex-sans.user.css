@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           WhatsApp Web - IBM Plex Sans
 @namespace      github.com/angbandz/userstyles
-@version        1.5.0
-@description    Troca a fonte do WhatsApp Web para IBM Plex Sans remota, com balões e legibilidade ampliados sem alterar a estrutura visual
+@version        1.6.0
+@description    Troca a fonte do WhatsApp Web para IBM Plex Sans remota, com legibilidade ampliada sem deformar os balões
 @author         angbandz
 @license        MIT
 @preprocessor   default
@@ -43,15 +43,12 @@
 
   :root {
     --wa-rice-font: "WA IBM Plex Sans", "IBM Plex Sans", "IBM Plex Sans Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --wa-rice-message-size: 17px;
+    --wa-rice-message-size: 16.8px;
     --wa-rice-sidebar-title-size: 15.75px;
     --wa-rice-sidebar-preview-size: 15px;
-    --wa-rice-input-size: 16.75px;
-    --wa-rice-line-height-message: 1.5;
+    --wa-rice-input-size: 16.6px;
+    --wa-rice-line-height-message: 1.43;
     --wa-rice-line-height-compact: 1.35;
-    --wa-rice-bubble-max-width: min(760px, 76%);
-    --wa-rice-bubble-pad-x: 13px;
-    --wa-rice-bubble-pad-y: 8px;
 
     --font-family-system: var(--wa-rice-font) !important;
     --font-family-app: var(--wa-rice-font) !important;
@@ -80,20 +77,7 @@
     -moz-osx-font-smoothing: grayscale !important;
   }
 
-  /* Balões: aumenta a área útil sem mexer em ícones, avatars ou layout geral. */
-  div.message-in,
-  div.message-out {
-    max-width: var(--wa-rice-bubble-max-width) !important;
-  }
-
-  div.message-in [class*="copyable-text"],
-  div.message-out [class*="copyable-text"] {
-    padding-inline: var(--wa-rice-bubble-pad-x) !important;
-    padding-top: var(--wa-rice-bubble-pad-y) !important;
-    padding-bottom: calc(var(--wa-rice-bubble-pad-y) + 2px) !important;
-  }
-
-  /* Mensagens */
+  /* Mensagens: aumenta a fonte sem alterar largura, padding ou geometria dos balões. */
   div.copyable-text,
   div.copyable-text span,
   div.copyable-text p,
@@ -101,13 +85,7 @@
   span.selectable-text span {
     font-size: var(--wa-rice-message-size) !important;
     line-height: var(--wa-rice-line-height-message) !important;
-    letter-spacing: 0.004em !important;
-  }
-
-  /* Deixa parágrafos longos respirarem melhor, sem aumentar demais a altura de mensagem curta. */
-  div.copyable-text p,
-  span.selectable-text {
-    margin-block: 0.08em !important;
+    letter-spacing: 0.002em !important;
   }
 
   /* Caixa de digitação */
@@ -117,7 +95,7 @@
   footer span.selectable-text span {
     font-size: var(--wa-rice-input-size) !important;
     line-height: var(--wa-rice-line-height-message) !important;
-    letter-spacing: 0.004em !important;
+    letter-spacing: 0.002em !important;
   }
 
   /* Nome da conversa na lista lateral */
@@ -135,7 +113,7 @@
     line-height: var(--wa-rice-line-height-compact) !important;
   }
 
-  /* Preserve horários, badges verdes, ícones e contadores do WhatsApp. */
+  /* Preserve horários, badges verdes, ícones, mídia, áudio, stickers e contadores do WhatsApp. */
   [aria-label="Lista de conversas"] span[aria-label],
   [aria-label="Chat list"] span[aria-label],
   [role="grid"] span[aria-label],
