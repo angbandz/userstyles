@@ -1,19 +1,24 @@
 /* ==UserStyle==
 @name           WhatsApp Web - IBM Plex Sans
 @namespace      github.com/angbandz/userstyles
-@version        1.1.0
+@version        1.2.0
 @description    Troca a fonte do WhatsApp Web para IBM Plex Sans, com legibilidade ampliada sem alterar a estrutura visual
 @author         angbandz
 @license        MIT
 @preprocessor   default
 ==/UserStyle== */
 
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
-
 @-moz-document domain("web.whatsapp.com") {
   :root {
-    --font-family-system: "IBM Plex Sans", sans-serif !important;
-    --font-family-app: "IBM Plex Sans", sans-serif !important;
+    --wa-rice-font: "IBM Plex Sans", "IBM Plex Sans Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --wa-rice-message-size: 16px;
+    --wa-rice-sidebar-size: 15.25px;
+    --wa-rice-meta-size: 12.5px;
+    --wa-rice-line-height-message: 1.45;
+    --wa-rice-line-height-compact: 1.35;
+
+    --font-family-system: var(--wa-rice-font) !important;
+    --font-family-app: var(--wa-rice-font) !important;
   }
 
   html,
@@ -28,10 +33,12 @@
   p,
   div[title],
   div[aria-label] {
-    font-family: "IBM Plex Sans", sans-serif !important;
+    font-family: var(--wa-rice-font) !important;
     font-variant-ligatures: common-ligatures contextual !important;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "kern" 1 !important;
     text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
   }
 
   /* Mensagens */
@@ -40,8 +47,9 @@
   div.copyable-text p,
   span.selectable-text,
   span.selectable-text span {
-    font-size: 15.5px !important;
-    line-height: 1.45 !important;
+    font-size: var(--wa-rice-message-size) !important;
+    line-height: var(--wa-rice-line-height-message) !important;
+    letter-spacing: 0.005em !important;
   }
 
   /* Caixa de digitação */
@@ -49,8 +57,9 @@
   footer [role="textbox"],
   footer span.selectable-text,
   footer span.selectable-text span {
-    font-size: 15.5px !important;
-    line-height: 1.45 !important;
+    font-size: var(--wa-rice-message-size) !important;
+    line-height: var(--wa-rice-line-height-message) !important;
+    letter-spacing: 0.005em !important;
   }
 
   /* Lista lateral de conversas e nomes */
@@ -58,13 +67,13 @@
   [aria-label="Chat list"] span,
   [role="grid"] span[title],
   header span[title] {
-    font-size: 15px !important;
-    line-height: 1.35 !important;
+    font-size: var(--wa-rice-sidebar-size) !important;
+    line-height: var(--wa-rice-line-height-compact) !important;
   }
 
-  /* Metadados: horário, avisos pequenos e textos auxiliares. Aumento discreto para não quebrar layout. */
+  /* Horários, contadores e textos auxiliares: ajuste mínimo para preservar o layout. */
   div.copyable-text sub,
   span[aria-label*=":"] {
-    font-size: 12.25px !important;
+    font-size: var(--wa-rice-meta-size) !important;
   }
 }
