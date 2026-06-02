@@ -1,0 +1,30 @@
+/* ==UserStyle==
+@name           WhatsApp Web - IBM Plex Sans
+@namespace      github.com/angbandz/userstyles
+@version        1.0.0
+@description    Troca a fonte do WhatsApp Web para IBM Plex Sans
+@author         angbandz
+@license        MIT
+@preprocessor   default
+==/UserStyle== */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+@-moz-document domain("web.whatsapp.com") {
+  :root {
+    --font-family-system: "IBM Plex Sans", sans-serif !important;
+    --font-family-app: "IBM Plex Sans", sans-serif !important;
+  }
+
+  html,
+  body,
+  button,
+  input,
+  textarea,
+  select,
+  [role="textbox"],
+  [contenteditable="true"],
+  * {
+    font-family: "IBM Plex Sans", sans-serif !important;
+  }
+}
