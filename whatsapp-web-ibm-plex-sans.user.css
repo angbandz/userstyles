@@ -14,15 +14,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url("https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-family: "WA IBM Plex Sans";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2") format("woff2");
+    src: url("https://fonts.gstatic.com/s/ibmplexsans/v19/zYXgKVElMYYaJe8bpLHnCwDKhdHeFQ.woff2") format("woff2");
   }
 
   @font-face {
@@ -30,15 +22,15 @@
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url("https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-600-normal.woff2") format("woff2");
+    src: url("https://fonts.gstatic.com/s/ibmplexsans/v19/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIFsdA.woff2") format("woff2");
   }
 
   @font-face {
     font-family: "WA IBM Plex Sans";
-    font-style: italic;
-    font-weight: 400;
+    font-style: normal;
+    font-weight: 700;
     font-display: swap;
-    src: url("https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-italic.woff2") format("woff2");
+    src: url("https://fonts.gstatic.com/s/ibmplexsans/v19/zYX9KVElMYYaJe8bpLHnCwDKjWr7AIFsdA.woff2") format("woff2");
   }
 
   :root {
@@ -48,7 +40,7 @@
     --wa-rice-sidebar-preview-size: 15px;
     --wa-rice-input-size: 16.6px;
     --wa-rice-line-height-message: 1.43;
-    --wa-rice-line-height-compact: 1.35;
+    --wa-rice-line-height-compact: 1.45;
 
     --font-family-system: var(--wa-rice-font) !important;
     --font-family-app: var(--wa-rice-font) !important;
