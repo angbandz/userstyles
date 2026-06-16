@@ -1,0 +1,121 @@
+/* ==UserStyle==
+@name         One Monokai Proxmox PVE - Mindserv
+@version      20260616.01
+@namespace    github.com/angbandz/userstyles
+@description  One Monokai theme for Proxmox VE, limited to proxmox.mindserv.org and 192.168.0.100:8006.
+@author       ndrinta; adapted by Leonardo Ítalo Lindolfo
+@license      MIT
+@homepageURL  https://github.com/angbandz/userstyles
+@supportURL   https://github.com/angbandz/userstyles/issues
+@updateURL    https://raw.githubusercontent.com/angbandz/userstyles/main/one-monokai-proxmox-pve.user.css
+@downloadURL  https://raw.githubusercontent.com/angbandz/userstyles/main/one-monokai-proxmox-pve.user.css
+==/UserStyle== */
+
+@-moz-document url-prefix("https://proxmox.mindserv.org/"),
+               url-prefix("https://192.168.0.100:8006/") {
+    /* One Monokai Proxmox PVE */
+    :root {
+        --dark-bg: #282c34;
+        --darker-bg: #21252b;
+        --selection: #3e4451;
+        --text: #abb2bf;
+        --pink: #e06c75;
+        --orange: #d19a66;
+        --yellow: #e5c07b;
+        --green: #98c379;
+        --cyan: #56b6c2;
+        --blue: #61afef;
+        --purple: #c678dd;
+    }
+
+    /* Main backgrounds */
+    .x-panel-body-default,
+    .x-grid-with-col-lines .x-grid-cell,
+    .x-treepanel .x-grid-container,
+    .x-panel-header-default-framed-top,
+    .x-window-body-default,
+    .x-toolbar-default {
+        background-color: var(--dark-bg) !important;
+        color: var(--text) !important;
+        border-color: #181a1f !important;
+    }
+
+    /* Sidebar and navigation */
+    .x-tree-panel,
+    .x-grid-header-ct,
+    .x-column-header {
+        background-color: var(--darker-bg) !important;
+    }
+
+    .x-grid-item-selected {
+        background-color: var(--selection) !important;
+    }
+
+    /* Text colors */
+    .x-grid-cell-inner,
+    .x-tree-node-text,
+    .x-form-item-label,
+    .x-column-header-text-inner {
+        color: var(--text) !important;
+    }
+
+    /* One Monokai accents */
+    .x-tree-icon-parent,
+    .x-tree-icon-leaf {
+        color: var(--blue) !important;
+    }
+
+    .fa-server,
+    .fa-building {
+        color: var(--yellow) !important;
+    }
+
+    .fa-cube {
+        color: var(--cyan) !important;
+    }
+
+    .fa-database {
+        color: var(--purple) !important;
+    }
+
+    /* Status colors */
+    .proxmox-invalid-row {
+        background-color: rgba(224, 108, 117, 0.2) !important;
+    }
+
+    .x-grid-row-summary {
+        background-color: var(--darker-bg) !important;
+    }
+
+    /* Buttons and inputs */
+    .x-btn-default-small {
+        background-color: var(--selection) !important;
+        border-color: #181a1f !important;
+    }
+
+    .x-form-text-default {
+        background-color: var(--darker-bg) !important;
+        color: var(--text) !important;
+        border-color: var(--selection) !important;
+    }
+
+    /* Charts and gauges: override inline SVG styles */
+    svg text {
+        fill: var(--text) !important;
+    }
+
+    .x-title-text {
+        color: var(--orange) !important;
+    }
+
+    /* Scrollbars */
+    ::-webkit-scrollbar {
+        width: 10px;
+        background: var(--darker-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--selection);
+        border-radius: 5px;
+    }
+}
