@@ -1,0 +1,508 @@
+ /* ==UserStyle==
+@name           chatgpt.com
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+ @-moz-document domain("chatgpt.com") {
+    /*
+ * NYT font-face collection
+ * Source: https://github.com/FrancesCoronel/nyt-comm/tree/master/fonts
+ * 63 TTF files actually versioned in the repository.
+ * Font files are loaded through raw.githubusercontent.com.
+ * Family labels are CSS aliases for the distinct filename subfamilies.
+ */
+    /* Cheltenham */
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-200.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 200;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-300.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 300;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-400.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 400;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-500.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-800.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 800;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-200.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 200;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-300.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 300;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-400.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 400;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-500.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-700.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 700;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-800.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 800;
+       font-display: swap;
+    }
+
+    /* Cheltenham Cond */
+    @font-face {
+       font-family: "Cheltenham Cond";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-cond-normal-300.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 300;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham Cond";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-cond-normal-500.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham Cond";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-cond-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+
+    /* Cheltenham Scaps */
+    @font-face {
+       font-family: "Cheltenham Scaps";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-scaps-normal-300.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 300;
+       font-display: swap;
+    }
+
+    /* Cheltenham Small */
+    @font-face {
+       font-family: "Cheltenham Small";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-small-normal-400.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 400;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham Small";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-small-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham Small";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-small-italic-400.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 400;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham Small";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-small-italic-700.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 700;
+       font-display: swap;
+    }
+
+    /* Cheltenham Wide */
+    @font-face {
+       font-family: "Cheltenham Wide";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-wide-normal-400.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 400;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Cheltenham Wide";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-wide-italic-400.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 400;
+       font-display: swap;
+    }
+
+    /* Cheltenham XCond */
+    @font-face {
+       font-family: "Cheltenham XCond";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-xcond-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+
+    /* Franklin */
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-300.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 300;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-500.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-600.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 600;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-800.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 800;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-900.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 900;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-300.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 300;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-500.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-600.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 600;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-700.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 700;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-800.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 800;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-900.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 900;
+       font-display: swap;
+    }
+
+    /* Franklin Cword */
+    @font-face {
+       font-family: "Franklin Cword";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-cword-normal-500.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 500;
+       font-display: swap;
+    }
+
+    /* Franklin Small */
+    @font-face {
+       font-family: "Franklin Small";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-small-normal-500.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Franklin Small";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-small-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+
+    /* Imperial */
+    @font-face {
+       font-family: "Imperial";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-normal-500.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Imperial";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-normal-600.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 600;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Imperial";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Imperial";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-italic-500.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Imperial";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-italic-600.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 600;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Imperial";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-italic-700.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 700;
+       font-display: swap;
+    }
+
+    /* Karnak */
+    @font-face {
+       font-family: "Karnak";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/karnak/karnak-normal-400.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 400;
+       font-display: swap;
+    }
+
+    /* Karnak Small */
+    @font-face {
+       font-family: "Karnak Small";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/karnak/karnak-small-normal-400.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 400;
+       font-display: swap;
+    }
+
+    /* Mag Sans */
+    @font-face {
+       font-family: "Mag Sans";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/mag/magsans-normal-500.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Mag Sans";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/mag/magsans-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+
+    /* Mag Serif */
+    @font-face {
+       font-family: "Mag Serif";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/mag/magserif-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+
+    /* Mag Slab */
+    @font-face {
+       font-family: "Mag Slab";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/mag/magslab-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+
+    /* Stymie */
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-100.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 100;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-200.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 200;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-300.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 300;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-500.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-700.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 700;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-800.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 800;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-900.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 900;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-italic-300.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 300;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-italic-500.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 500;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-italic-700.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 700;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-italic-800.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 800;
+       font-display: swap;
+    }
+
+    /* Stymie Small */
+    @font-face {
+       font-family: "Stymie Small";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-small-normal-800.ttf") format("truetype");
+       font-style: normal;
+       font-weight: 800;
+       font-display: swap;
+    }
+    @font-face {
+       font-family: "Stymie Small";
+       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-small-italic-800.ttf") format("truetype");
+       font-style: italic;
+       font-weight: 800;
+       font-display: swap;
+    }
+
+    body {
+       font-family: "Imperial", serif;
+       font-weight: 500;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+       font-family: 'Stymie', cursive !important;
+       font-style: italic !important;
+       font-weight: 700;
+       font-size: 1.6rem !important;
+       text-align: center;
+    }
+ }
