@@ -1,0 +1,168 @@
+/* ==UserStyle==
+@name           Reddit — fonte + conteúdo centralizado
+@namespace      github.com/openstyles/stylus
+@version        1.1.0
+@description    Troca a fonte e centraliza o conteúdo do Reddit novo
+@author         Me
+==/UserStyle== */
+@-moz-document regexp("https://(www\\.)?reddit\\.com/.*") {
+
+    /*
+ * Fontes via Typekit (Adobe) — Termos de Uso:
+ * http://www.adobe.com/products/eulas/tou_typekit
+ * © 2009-2026 Adobe Systems Incorporated. All Rights Reserved.
+ */
+    @font-face {
+        font-family: "merriweather";
+        src: url("https://use.typekit.net/af/f5977c/00000000000000007735a0e6/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/f5977c/00000000000000007735a0e6/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/f5977c/00000000000000007735a0e6/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+        font-display: auto;
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "merriweather";
+        src: url("https://use.typekit.net/af/8f99bc/00000000000000007735a0ea/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/8f99bc/00000000000000007735a0ea/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/8f99bc/00000000000000007735a0ea/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+        font-display: auto;
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "merriweather";
+        src: url("https://use.typekit.net/af/8a95b0/00000000000000007735a0f5/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"), url("https://use.typekit.net/af/8a95b0/00000000000000007735a0f5/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"), url("https://use.typekit.net/af/8a95b0/00000000000000007735a0f5/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+        font-display: auto;
+        font-style: italic;
+        font-weight: 400;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "merriweather";
+        src: url("https://use.typekit.net/af/3172b5/00000000000000007735a101/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"), url("https://use.typekit.net/af/3172b5/00000000000000007735a101/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"), url("https://use.typekit.net/af/3172b5/00000000000000007735a101/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+        font-display: auto;
+        font-style: italic;
+        font-weight: 700;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "ibm-plex-sans";
+        src: url("https://use.typekit.net/af/7aa6bf/000000000000000077359422/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"), url("https://use.typekit.net/af/7aa6bf/000000000000000077359422/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"), url("https://use.typekit.net/af/7aa6bf/000000000000000077359422/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+        font-display: auto;
+        font-style: italic;
+        font-weight: 400;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "ibm-plex-sans";
+        src: url("https://use.typekit.net/af/2cef2b/000000000000000077359445/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/2cef2b/000000000000000077359445/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/2cef2b/000000000000000077359445/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+        font-display: auto;
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "ibm-plex-sans";
+        src: url("https://use.typekit.net/af/7235d5/00000000000000007735945f/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"), url("https://use.typekit.net/af/7235d5/00000000000000007735945f/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"), url("https://use.typekit.net/af/7235d5/00000000000000007735945f/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+        font-display: auto;
+        font-style: italic;
+        font-weight: 700;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "ibm-plex-sans";
+        src: url("https://use.typekit.net/af/3b0680/000000000000000077359463/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/3b0680/000000000000000077359463/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/3b0680/000000000000000077359463/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+        font-display: auto;
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "ibm-plex-sans-condensed";
+        src: url("https://use.typekit.net/af/a0a032/000000000000000077359438/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"), url("https://use.typekit.net/af/a0a032/000000000000000077359438/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"), url("https://use.typekit.net/af/a0a032/000000000000000077359438/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+        font-display: auto;
+        font-style: italic;
+        font-weight: 400;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "ibm-plex-sans-condensed";
+        src: url("https://use.typekit.net/af/386aea/00000000000000007735943c/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/386aea/00000000000000007735943c/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/386aea/00000000000000007735943c/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+        font-display: auto;
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "ibm-plex-sans-condensed";
+        src: url("https://use.typekit.net/af/1bbc86/00000000000000007735945b/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"), url("https://use.typekit.net/af/1bbc86/00000000000000007735945b/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"), url("https://use.typekit.net/af/1bbc86/00000000000000007735945b/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+        font-display: auto;
+        font-style: italic;
+        font-weight: 700;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "ibm-plex-sans-condensed";
+        src: url("https://use.typekit.net/af/f80350/000000000000000077359460/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/f80350/000000000000000077359460/31/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/f80350/000000000000000077359460/31/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+        font-display: auto;
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: "DM Sans Variable";
+        font-style: normal;
+        font-display: swap;
+        font-weight: 100 1000;
+        src: url("https://cdn.jsdelivr.net/fontsource/fonts/dm-sans:vf@5.3.0/latin-wght-normal.woff2") format("woff2-variations");
+    }
+
+    :root {
+        --reddit-font: "ibm-plex-sans", "Lexend", "DM Sans Variable", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+        --reddit-monospace: "FantasqueSansM Nerd Font", "Cascadia Mono", Consolas, "Courier New", monospace;
+
+        --page-width: 1280px;
+    }
+
+    /* Centraliza o grid inteiro. A barra superior é fixed e não é afetada. */
+    .grid-container {
+        max-width: var(--page-width) !important;
+        margin-inline: auto !important;
+    }
+
+    /* O Reddit fixa o miolo em 1120px e em calc(100vw - menu).
+   Reajusta para caber dentro da nova largura. */
+    .grid-container:not(.grid-full) #subgrid-container {
+        width: 100% !important;
+        max-width: calc(var(--page-width) - var(--flex-nav-width, 0px)) !important;
+    }
+    /*
+ * Troca a família tipográfica.
+ * Aplicada na raiz para herdar até a maior parte do texto (inclusive
+ * dentro dos web components, quando eles não definem fonte própria).
+ */
+    html,
+    body,
+    shreddit-app {
+        font-family: var(--reddit-font) !important;
+    }
+
+    /* Preserva a fonte de blocos de código. */
+    pre,
+    code,
+    kbd,
+    samp {
+        font-family: var(--reddit-monospace) !important;
+    }
+}
