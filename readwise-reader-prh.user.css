@@ -82,22 +82,61 @@
     font-optical-sizing: auto;
   }
 
+  /* Preto puro no tema claro (--theme_body_color), pra mais contraste que o cinza padrão do Readwise. Não mexe no tema escuro. */
+  @media (prefers-color-scheme: light) {
+    #document-text-content {
+      color: #000000 !important;
+    }
+  }
+
   /* Herda a fonte em tudo, menos em código. */
   #document-text-content :not(pre, code, kbd, samp, pre *, code *) {
     font-family: inherit !important;
   }
 
-  /* Títulos como na página: h1 regular, h2 pesado (850), entrelinha cheia. */
-  #document-text-content :is(h1, h3, h4, h5, h6) {
+  /*
+   * Escala da página de imprensa da PRH (--theme_h*_font_size / --theme_body_font_size),
+   * convertida pra em relativo ao body (23px lá) em vez de px fixo, pra herdar o
+   * "tamanho de texto" que o Readwise já deixa o usuário ajustar.
+   */
+  #document-text-content :is(h3, h4, h5, h6) {
     font-weight: 400 !important;
     line-height: 1.05 !important;
     letter-spacing: normal !important;
   }
 
+  #document-text-content h1 {
+    font-size: 2.9565em !important; /* 68/23 */
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    letter-spacing: normal !important;
+  }
+
   #document-text-content h2 {
+    font-size: 2.2609em !important; /* 52/23 */
     font-weight: 850 !important;
     line-height: 1 !important;
     letter-spacing: normal !important;
+  }
+
+  #document-text-content h3 {
+    font-size: 1.3913em !important; /* 32/23 */
+  }
+
+  #document-text-content h4 {
+    font-size: 0.8696em !important; /* 20/23 */
+  }
+
+  #document-text-content h5 {
+    font-size: 0.6522em !important; /* 15/23 */
+  }
+
+  #document-text-content small {
+    font-size: 0.5217em !important; /* 12/23 */
+  }
+
+  #document-text-content figcaption {
+    font-size: 0.6522em !important; /* 15/23 */
   }
 
   #document-text-content :is(strong, b) {
