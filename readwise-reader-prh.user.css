@@ -1,15 +1,15 @@
 /* ==UserStyle==
 @name         Readwise Reader — tipografia PRH (Clearface)
 @namespace    leonardo/readwise-reader-prh
-@version      1.1.0
-@description  Texto do leitor com a tipografia da página de imprensa de The Technological Republic (Penguin Random House): ITC Clearface, preto puro sobre branco, com Fraunces como alternativa gratuita.
+@version      1.2.0
+@description  Texto do leitor com a tipografia da página de imprensa de The Technological Republic (Penguin Random House): ITC Clearface, preto puro sobre branco no tema claro e o tema escuro do próprio Reader, com Fraunces como alternativa gratuita.
 @author       Leonardo Ítalo Lindolfo
 @license      MIT
 @homepageURL  https://github.com/angbandz/userstyles
 @updateURL    https://raw.githubusercontent.com/angbandz/userstyles/main/readwise-reader-prh.user.css
 @preprocessor less
 
-@var select modo "Preto no branco (PRH)" ["sistema:Seguir o sistema (prefers-color-scheme: light)*", "sempre:Sempre (Reader fixo no tema claro)", "nunca:Nunca (manter as cores do Reader)"]
+@var select modo "Preto no branco (PRH)" ["reader:Seguir o tema do Reader (claro: preto no branco; escuro: cores do Reader)*", "nunca:Nunca (manter as cores do Reader)"]
 ==/UserStyle== */
 
 @-moz-document domain("read.readwise.io") {
@@ -92,49 +92,39 @@
   }
 
   /*
-   * Preto no branco da PRH. O Readwise não pinta o texto pelo `color` do contêiner:
-   * cada parágrafo lê os tokens --reading-text-* (definidos em .document-content e,
-   * à parte, em #document-header). Por isso um `color` só no contêiner continuava cinza.
-   * Sobrescrever os tokens deixa o próprio Reader aplicar a cor em tudo que já estiliza.
+   * Preto no branco da PRH, só no tema claro do Reader. O Reader marca o tema
+   * escuro com a classe .theme--dark no <html>; nele, as cores continuam as do
+   * próprio Reader e só a tipografia muda.
+   *
+   * O Readwise não pinta o texto pelo `color` do contêiner: cada parágrafo lê
+   * os tokens --reading-text-* (definidos em .document-content e, à parte, em
+   * #document-header). Sobrescrever os tokens deixa o próprio Reader aplicar a
+   * cor em tudo que já estiliza.
    */
-  .prh-preto-no-branco() {
-    .document-content,
-    #document-header {
-      --reading-text-title: #000000 !important;
-      --reading-text-primary: #000000 !important;
-    }
-
-    /* Só o painel de leitura fica branco; barra lateral e demais superfícies do Reader não mudam. */
-    html {
+  & when (@modo = reader) {
+    html:not(.theme--dark) {
+      /* Só o painel de leitura fica branco; barra lateral e demais superfícies do Reader não mudam. */
       --content-background-color: #ffffff !important;
-    }
 
-    /* Rede de segurança para nós que não usam os tokens. */
-    #document-text-content,
-    #document-header h1 {
-      color: #000000 !important;
-    }
+      .document-content,
+      #document-header {
+        --reading-text-title: #000000 !important;
+        --reading-text-primary: #000000 !important;
+      }
 
-    /*
-     * O Readwise usa antialiasing em escala de cinza (-webkit-font-smoothing: antialiased),
-     * que afina o traço e clareia o texto no macOS. `auto` devolve o traço encorpado.
-     * Fica só no tema claro: em texto claro sobre fundo escuro, o antialiasing é o melhor.
-     */
-    #document-text-content,
-    #document-header h1 {
-      -webkit-font-smoothing: auto !important;
-      -moz-osx-font-smoothing: auto !important;
+      /*
+       * `color` é a rede de segurança para nós que não usam os tokens.
+       * O Readwise usa antialiasing em escala de cinza (-webkit-font-smoothing: antialiased),
+       * que afina o traço e clareia o texto no macOS. `auto` devolve o traço encorpado.
+       * Fica só no tema claro: em texto claro sobre fundo escuro, o antialiasing é o melhor.
+       */
+      #document-text-content,
+      #document-header h1 {
+        color: #000000 !important;
+        -webkit-font-smoothing: auto !important;
+        -moz-osx-font-smoothing: auto !important;
+      }
     }
-  }
-
-  & when (@modo = sistema) {
-    @media (prefers-color-scheme: light) {
-      .prh-preto-no-branco();
-    }
-  }
-
-  & when (@modo = sempre) {
-    .prh-preto-no-branco();
   }
 
   /* Herda a fonte em tudo, menos em código. */
