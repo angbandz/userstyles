@@ -1,15 +1,20 @@
 /* ==UserStyle==
 @name         Readwise Reader — tipografia PRH (Clearface)
 @namespace    leonardo/readwise-reader-prh
-@version      1.0.0
-@description  Texto do leitor com a tipografia da página de imprensa de The Technological Republic (Penguin Random House): ITC Clearface, com Fraunces como alternativa gratuita.
+@version      1.1.0
+@description  Texto do leitor com a tipografia da página de imprensa de The Technological Republic (Penguin Random House): ITC Clearface, preto puro sobre branco, com Fraunces como alternativa gratuita.
 @author       Leonardo Ítalo Lindolfo
 @license      MIT
+@homepageURL  https://github.com/angbandz/userstyles
+@updateURL    https://raw.githubusercontent.com/angbandz/userstyles/main/readwise-reader-prh.user.css
+@preprocessor less
+
+@var select modo "Preto no branco (PRH)" ["sistema:Seguir o sistema (prefers-color-scheme: light)*", "sempre:Sempre (Reader fixo no tema claro)", "nunca:Nunca (manter as cores do Reader)"]
 ==/UserStyle== */
 
 @-moz-document domain("read.readwise.io") {
-  /* Alternativa gratuita. SOFT 50 suaviza as serifas, aproximando da Clearface. */
-  @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,50;1,9..144,300..900,50&display=swap");
+  /* Alternativa gratuita. SOFT 50 suaviza as serifas, aproximando da Clearface. (css) impede o Less de tentar compilar o @import. */
+  @import (css) url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,50;1,9..144,300..900,50&display=swap");
 
   /* ITC Clearface embutida em base64 (kit local em ~/Fonts), sem instalar no sistema. */
   @font-face {
@@ -76,17 +81,60 @@
     font-display: swap;
   }
 
-  #document-text-content {
+  #document-text-content,
+  #document-header h1 {
     font-family: "ITC Clearface", "ITCClearface", "Clearface", "Fraunces", Georgia, serif !important;
-    font-weight: 400;
     font-optical-sizing: auto;
   }
 
-  /* Preto puro no tema claro (--theme_body_color), pra mais contraste que o cinza padrão do Readwise. Não mexe no tema escuro. */
-  @media (prefers-color-scheme: light) {
-    #document-text-content {
+  #document-text-content {
+    font-weight: 400;
+  }
+
+  /*
+   * Preto no branco da PRH. O Readwise não pinta o texto pelo `color` do contêiner:
+   * cada parágrafo lê os tokens --reading-text-* (definidos em .document-content e,
+   * à parte, em #document-header). Por isso um `color` só no contêiner continuava cinza.
+   * Sobrescrever os tokens deixa o próprio Reader aplicar a cor em tudo que já estiliza.
+   */
+  .prh-preto-no-branco() {
+    .document-content,
+    #document-header {
+      --reading-text-title: #000000 !important;
+      --reading-text-primary: #000000 !important;
+    }
+
+    /* Só o painel de leitura fica branco; barra lateral e demais superfícies do Reader não mudam. */
+    html {
+      --content-background-color: #ffffff !important;
+    }
+
+    /* Rede de segurança para nós que não usam os tokens. */
+    #document-text-content,
+    #document-header h1 {
       color: #000000 !important;
     }
+
+    /*
+     * O Readwise usa antialiasing em escala de cinza (-webkit-font-smoothing: antialiased),
+     * que afina o traço e clareia o texto no macOS. `auto` devolve o traço encorpado.
+     * Fica só no tema claro: em texto claro sobre fundo escuro, o antialiasing é o melhor.
+     */
+    #document-text-content,
+    #document-header h1 {
+      -webkit-font-smoothing: auto !important;
+      -moz-osx-font-smoothing: auto !important;
+    }
+  }
+
+  & when (@modo = sistema) {
+    @media (prefers-color-scheme: light) {
+      .prh-preto-no-branco();
+    }
+  }
+
+  & when (@modo = sempre) {
+    .prh-preto-no-branco();
   }
 
   /* Herda a fonte em tudo, menos em código. */
