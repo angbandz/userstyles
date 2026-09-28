@@ -1,508 +1,691 @@
- /* ==UserStyle==
-@name           chatgpt.com
+/* ==UserStyle==
+@name           ChatGPT — NYTimes Editorial
 @namespace      github.com/openstyles/stylus
-@version        1.0.0
-@description    A new userstyle
+@version        6.1.0
+@description    Hierarquia editorial NYTimes para ChatGPT, com tamanho ajustável no Stylus e suporte às cores nativas da interface.
 @author         Me
+@license        MIT
+@preprocessor   default
+@var range      nyt-body-size "Tamanho do texto do chat e do compositor" [16, 14, 22, 1, "px"]
 ==/UserStyle== */
- @-moz-document domain("chatgpt.com") {
-    /*
- * NYT font-face collection
- * Source: https://github.com/FrancesCoronel/nyt-comm/tree/master/fonts
- * 63 TTF files actually versioned in the repository.
- * Font files are loaded through raw.githubusercontent.com.
- * Family labels are CSS aliases for the distinct filename subfamilies.
- */
-    /* Cheltenham */
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-200.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 200;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-300.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 300;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-400.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 400;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-500.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-800.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 800;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-200.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 200;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-300.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 300;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-400.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 400;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-500.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-700.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 700;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-800.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 800;
-       font-display: swap;
-    }
 
-    /* Cheltenham Cond */
-    @font-face {
-       font-family: "Cheltenham Cond";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-cond-normal-300.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 300;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham Cond";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-cond-normal-500.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham Cond";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-cond-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
 
-    /* Cheltenham Scaps */
-    @font-face {
-       font-family: "Cheltenham Scaps";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-scaps-normal-300.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 300;
-       font-display: swap;
-    }
+  /* ────────────────────────────────────────────────────────────────
+     1. TIPOS
+     Cada família tem uma função única: display, leitura, interface.
+     ──────────────────────────────────────────────────────────────── */
 
-    /* Cheltenham Small */
-    @font-face {
-       font-family: "Cheltenham Small";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-small-normal-400.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 400;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham Small";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-small-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham Small";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-small-italic-400.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 400;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham Small";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-small-italic-700.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 700;
-       font-display: swap;
-    }
+  @font-face {
+    font-family: "NYT Cheltenham";
+    src: local("NYT Cheltenham"),
+         url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-400.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "NYT Cheltenham";
+    src: local("NYT Cheltenham Bold"),
+         url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-normal-700.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "NYT Cheltenham";
+    src: local("NYT Cheltenham Italic"),
+         url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-italic-400.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "NYT Imperial";
+    src: local("NYT Imperial"),
+         url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-normal-500.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "NYT Imperial";
+    src: local("NYT Imperial Bold"),
+         url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-normal-700.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "NYT Imperial";
+    src: local("NYT Imperial Italic"),
+         url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-italic-500.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "NYT Franklin";
+    src: local("NYT Franklin"), local("Libre Franklin"),
+         url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-500.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "NYT Franklin";
+    src: local("NYT Franklin Semibold"), local("Libre Franklin SemiBold"),
+         url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-600.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "NYT Franklin";
+    src: local("NYT Franklin Bold"), local("Libre Franklin Bold"),
+         url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-700.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+  }
 
-    /* Cheltenham Wide */
-    @font-face {
-       font-family: "Cheltenham Wide";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-wide-normal-400.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 400;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Cheltenham Wide";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-wide-italic-400.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 400;
-       font-display: swap;
-    }
+  :root {
+    --nyt-body-leading: 1.55;
+    --nyt-measure: 42rem;
+    --nyt-turn-space: clamp(44px, 6vw, 68px);
 
-    /* Cheltenham XCond */
-    @font-face {
-       font-family: "Cheltenham XCond";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/cheltenham/cheltenham-xcond-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
+    --nyt-serif: "NYT Imperial", Georgia, "Times New Roman", serif;
+    --nyt-display: "NYT Cheltenham", Georgia, "Times New Roman", serif;
+    --nyt-sans: "NYT Franklin", "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+    --nyt-mono: "iA Writer Duospace", "SFMono-Regular", Consolas, monospace;
+  }
 
-    /* Franklin */
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-300.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 300;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-500.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-600.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 600;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-800.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 800;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-normal-900.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 900;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-300.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 300;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-500.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-600.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 600;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-700.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 700;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-800.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 800;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-italic-900.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 900;
-       font-display: swap;
-    }
+  /* ────────────────────────────────────────────────────────────────
+     2. TEMAS NATIVOS
+     Cores e acentos vêm da aparência ativa no ChatGPT/Codex.
+     O userstyle define tipografia e fios, não repinta a interface.
+     ──────────────────────────────────────────────────────────────── */
 
-    /* Franklin Cword */
-    @font-face {
-       font-family: "Franklin Cword";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-cword-normal-500.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 500;
-       font-display: swap;
-    }
+  html, body, body * {
+    --nyt-paper: var(--main-page-background, var(--main-surface-primary, var(--bg-primary, Canvas)));
+    --nyt-paper-alt: var(--main-surface-secondary, var(--bg-secondary, var(--surface-secondary, var(--bg-primary, Canvas))));
+    --nyt-paper-hover: var(--surface-hover, var(--interactive-bg-secondary-hover, color-mix(in srgb, var(--text-primary, CanvasText) 6%, var(--bg-primary, Canvas))));
+    --nyt-ink: var(--text-primary, CanvasText);
+    --nyt-body-ink: var(--text-primary, CanvasText);
+    --nyt-muted: var(--text-secondary, color-mix(in srgb, var(--text-primary, CanvasText) 72%, transparent));
+    --nyt-faint: var(--text-tertiary, var(--text-secondary, color-mix(in srgb, var(--text-primary, CanvasText) 58%, transparent)));
+    --nyt-hairline: var(--border-light, var(--border-default, color-mix(in srgb, var(--text-primary, CanvasText) 14%, transparent)));
+    --nyt-strong-rule: var(--border-heavy, var(--border-medium, color-mix(in srgb, var(--text-primary, CanvasText) 26%, transparent)));
+    --nyt-link: var(--text-accent, var(--interactive-label-accent-default, var(--link, var(--accent-blue, #326891))));
+    --nyt-danger: var(--text-status-error, var(--text-error, #a3232a));
+  }
 
-    /* Franklin Small */
-    @font-face {
-       font-family: "Franklin Small";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-small-normal-500.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Franklin Small";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/franklin/franklin-small-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
+  html, body {
+    background: var(--nyt-paper, #fff) !important;
+    color: var(--nyt-ink, #121212) !important;
+  }
 
-    /* Imperial */
-    @font-face {
-       font-family: "Imperial";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-normal-500.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Imperial";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-normal-600.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 600;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Imperial";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Imperial";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-italic-500.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Imperial";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-italic-600.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 600;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Imperial";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/imperial/imperial-italic-700.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 700;
-       font-display: swap;
-    }
+  body, button, input, textarea, select, [contenteditable] {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-    /* Karnak */
-    @font-face {
-       font-family: "Karnak";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/karnak/karnak-normal-400.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 400;
-       font-display: swap;
-    }
+  ::selection {
+    color: var(--nyt-ink, #121212);
+    background: color-mix(in srgb, var(--nyt-link, #326891) 22%, transparent);
+  }
 
-    /* Karnak Small */
-    @font-face {
-       font-family: "Karnak Small";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/karnak/karnak-small-normal-400.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 400;
-       font-display: swap;
-    }
+  *:focus-visible {
+    outline: 2px solid var(--nyt-link, #326891) !important;
+    outline-offset: 2px;
+  }
 
-    /* Mag Sans */
-    @font-face {
-       font-family: "Mag Sans";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/mag/magsans-normal-500.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Mag Sans";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/mag/magsans-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
+  /* Sombras apenas como separação leve entre planos. */
+  body [class*="shadow-"]:not([class*="shadow-none"]),
+  body [style*="box-shadow"] {
+    box-shadow: 0 1px 4px color-mix(in srgb, var(--nyt-ink) 5%, transparent) !important;
+  }
 
-    /* Mag Serif */
-    @font-face {
-       font-family: "Mag Serif";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/mag/magserif-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
+  /* ────────────────────────────────────────────────────────────────
+     3. CABEÇALHO E ÍNDICE
+     Uma moldura editorial, não uma reprodução do papel.
+     ──────────────────────────────────────────────────────────────── */
 
-    /* Mag Slab */
-    @font-face {
-       font-family: "Mag Slab";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/mag/magslab-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
+  #page-header, #conversation-header, header.draggable {
+    background: var(--nyt-paper, Canvas) !important;
+    border-bottom: 1px solid var(--nyt-hairline) !important;
+  }
 
-    /* Stymie */
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-100.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 100;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-200.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 200;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-300.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 300;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-500.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-700.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 700;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-800.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 800;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-normal-900.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 900;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-italic-300.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 300;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-italic-500.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 500;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-italic-700.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 700;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-italic-800.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 800;
-       font-display: swap;
-    }
+  #page-header button, #conversation-header button,
+  #page-header [role="button"], #conversation-header [role="button"] {
+    font-family: var(--nyt-sans) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: .025em;
+    color: var(--nyt-ink) !important;
+  }
 
-    /* Stymie Small */
-    @font-face {
-       font-family: "Stymie Small";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-small-normal-800.ttf") format("truetype");
-       font-style: normal;
-       font-weight: 800;
-       font-display: swap;
-    }
-    @font-face {
-       font-family: "Stymie Small";
-       src: url("https://raw.githubusercontent.com/FrancesCoronel/nyt-comm/master/fonts/stymie/stymie-small-italic-800.ttf") format("truetype");
-       font-style: italic;
-       font-weight: 800;
-       font-display: swap;
-    }
+  #stage-slideover-sidebar, #stage-sidebar-tiny-bar, #sidebar,
+  nav[aria-label], [data-sidebar], div[class*="sidebar-container"],
+  div[class*="bg-token-sidebar-surface"] {
+    background: var(--sidebar-surface-primary, var(--sidebar-surface, var(--nyt-paper-alt))) !important;
+    border-right: 1px solid var(--nyt-hairline) !important;
+  }
 
-    body {
-       font-family: "Imperial", serif;
-       font-weight: 500;
-    }
+  #sidebar-header {
+    border-bottom: 1px solid var(--nyt-hairline) !important;
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-       font-family: 'Stymie', cursive !important;
-       font-style: italic !important;
-       font-weight: 700;
-       font-size: 1.6rem !important;
-       text-align: center;
+  #stage-slideover-sidebar *, nav[aria-label] *, [data-sidebar] * {
+    font-family: var(--nyt-sans) !important;
+  }
+
+  #stage-slideover-sidebar h2, #stage-slideover-sidebar h3,
+  #history h2, #history h3, nav h2, nav h3, aside h2, aside h3 {
+    margin: 22px 12px 8px !important;
+    padding: 0 0 7px !important;
+    border-bottom: 1px solid var(--nyt-hairline) !important;
+    background: transparent !important;
+    color: var(--nyt-muted) !important;
+    font-family: var(--nyt-sans) !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: .12em !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+  }
+
+  .__menu-item[data-sidebar-item], #history a, nav li a {
+    min-height: 36px;
+    padding-block: 8px !important;
+    border-radius: 4px !important;
+    color: var(--text-primary, var(--nyt-ink)) !important;
+    font-family: var(--nyt-sans) !important;
+    font-size: 14px !important;
+    line-height: 1.3 !important;
+  }
+
+  .__menu-item[data-sidebar-item]:hover,
+  #history a:hover, nav li a:hover {
+    background: var(--nyt-paper-hover) !important;
+  }
+
+  .__menu-item[data-sidebar-item][data-active],
+  .__menu-item[data-sidebar-item][aria-current="page"],
+  #history a[data-active] {
+    box-shadow: inset 2px 0 0 var(--interactive-bg-accent-default, var(--nyt-link)) !important;
+    font-weight: 600 !important;
+  }
+
+  .__menu-item[data-color="danger"],
+  .__menu-item[data-color="danger"] * {
+    color: var(--nyt-danger) !important;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     4. CONVERSA
+     Pergunta = manchete. Resposta = matéria.
+     ──────────────────────────────────────────────────────────────── */
+
+  #thread, #thread-bottom-container {
+    background: var(--nyt-paper) !important;
+  }
+
+  article[data-testid^="conversation-turn"] > div,
+  article[data-testid^="conversation-turn"] .mx-auto,
+  #thread-bottom-container .mx-auto,
+  #thread [class*="max-w-"][class*="mx-auto"] {
+    max-width: var(--nyt-measure) !important;
+  }
+
+  article[data-testid^="conversation-turn"] {
+    position: relative;
+    padding-block: 0 !important;
+    border: 0 !important;
+  }
+
+  /* Um novo pedido começa uma nova matéria. */
+  article[data-testid^="conversation-turn"]:has([data-message-author-role="user"]):not(:first-child)::before {
+    content: "";
+    display: block;
+    width: min(var(--nyt-measure), calc(100% - 32px));
+    height: 1px;
+    margin: var(--nyt-turn-space) auto;
+    background: var(--nyt-hairline);
+  }
+
+  [data-message-author-role="user"] {
+    font-family: var(--nyt-display) !important;
+    font-size: calc(var(--nyt-body-size, 16px) + 2px) !important;
+    line-height: 1.28 !important;
+  }
+
+  div[data-message-author-role="user"] {
+    margin-bottom: 26px !important;
+  }
+
+  div[data-message-author-role="user"] .user-message-bubble-color,
+  div[data-message-author-role="user"] [class*="bg-token-message-surface"],
+  div[data-message-author-role="user"] > div > div {
+    font-family: var(--nyt-display) !important;
+    font-size: inherit !important;
+    font-weight: 600 !important;
+    letter-spacing: -.01em;
+    line-height: 1.28 !important;
+    text-wrap: pretty;
+  }
+
+  [data-message-author-role="assistant"] .markdown,
+  [data-message-author-role="assistant"] .prose,
+  div.markdown-new-styling {
+    color: var(--nyt-body-ink) !important;
+    font-family: var(--nyt-serif) !important;
+    font-size: var(--nyt-body-size, 16px) !important;
+    letter-spacing: -.002em;
+    line-height: var(--nyt-body-leading) !important;
+    hyphens: auto;
+    text-wrap: pretty;
+  }
+
+  .markdown p, .prose p {
+    margin: 0 0 1.05em !important;
+  }
+
+  .markdown h1, .markdown h2, .markdown h3,
+  .markdown h5, .markdown h6,
+  .prose h1, .prose h2, .prose h3 {
+    margin-inline: 0 !important;
+    background: transparent !important;
+    color: var(--nyt-ink) !important;
+    font-family: var(--nyt-display) !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    letter-spacing: -.018em !important;
+    line-height: 1.12 !important;
+    text-align: left !important;
+    text-wrap: balance;
+  }
+
+  .markdown h1 {
+    margin-block: 1.7em .45em !important;
+    font-size: 2em !important;
+  }
+
+  .markdown h2 {
+    margin-block: 1.8em .48em !important;
+    padding-top: .6em !important;
+    border-top: 1px solid var(--nyt-strong-rule) !important;
+    font-size: 1.55em !important;
+  }
+
+  .markdown h3 {
+    margin-block: 1.55em .35em !important;
+    font-size: 1.22em !important;
+  }
+
+  .markdown h4 {
+    margin: 1.8em 0 .55em !important;
+    padding: 0 !important;
+    background: transparent !important;
+    color: var(--nyt-muted) !important;
+    font-family: var(--nyt-sans) !important;
+    font-size: .62em !important;
+    font-weight: 700 !important;
+    letter-spacing: .12em !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+  }
+
+  .markdown a, .prose a {
+    color: var(--nyt-link) !important;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .markdown a:hover, .prose a:hover {
+    color: var(--nyt-ink) !important;
+    text-decoration-color: currentColor;
+  }
+
+  .markdown strong, .prose strong {
+    color: var(--nyt-ink);
+    font-weight: 700;
+  }
+
+  .markdown blockquote {
+    margin: 1.65em 0 !important;
+    padding: .1em 0 .1em 1em !important;
+    border: 0 !important;
+    border-left: 2px solid var(--nyt-strong-rule) !important;
+    background: transparent !important;
+    color: var(--nyt-ink) !important;
+    font-family: var(--nyt-display) !important;
+    font-size: 1.18em !important;
+    font-style: italic !important;
+    line-height: 1.35 !important;
+  }
+
+  .markdown blockquote p {
+    margin: 0 !important;
+    font-size: inherit !important;
+  }
+
+  .markdown ul, .markdown ol {
+    margin: 0 0 1.15em !important;
+    padding-left: 1.25em !important;
+  }
+
+  .markdown li {
+    margin: .32em 0 !important;
+    padding-left: .15em;
+  }
+
+  .markdown li p {
+    margin: 0 0 .35em !important;
+  }
+
+  .markdown li::marker {
+    color: var(--nyt-muted);
+  }
+
+  .markdown ol > li::marker {
+    font-family: var(--nyt-sans);
+    font-size: .78em;
+    font-weight: 700;
+  }
+
+  .markdown hr {
+    width: 100% !important;
+    margin: 2em 0 !important;
+    border: 0 !important;
+    border-top: 1px solid var(--nyt-hairline) !important;
+  }
+
+  .markdown table {
+    width: 100%;
+    margin: 1.5em 0 1.8em !important;
+    border: 0 !important;
+    border-collapse: collapse !important;
+    font-family: var(--nyt-sans) !important;
+    font-size: .88em !important;
+    line-height: 1.4;
+  }
+
+  .markdown thead th {
+    padding: 9px 14px 8px 0 !important;
+    border: 0 !important;
+    border-top: 1px solid var(--nyt-strong-rule) !important;
+    border-bottom: 1px solid var(--nyt-strong-rule) !important;
+    background: transparent !important;
+    color: var(--nyt-ink) !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: .09em;
+    text-align: left !important;
+    text-transform: uppercase;
+  }
+
+  .markdown tbody td {
+    padding: 10px 14px 10px 0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--nyt-hairline) !important;
+    background: transparent !important;
+    font-variant-numeric: tabular-nums;
+    vertical-align: top;
+  }
+
+  /* O Times digital usa fotografia em cor; não há filtro ornamental. */
+  .markdown img, article img:not([class*="rounded-full"]) {
+    height: auto;
+    border: 0 !important;
+    border-radius: 2px !important;
+    filter: none !important;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     5. CÓDIGO E DADOS
+     Precisão técnica sem virar um segundo tema dentro do tema.
+     ──────────────────────────────────────────────────────────────── */
+
+  code, pre, pre code, .cm-editor, .cm-scroller, .cm-content, .cm-line,
+  #code-block-viewer {
+    font-family: var(--nyt-mono) !important;
+    font-size: 14px !important;
+    line-height: 1.58 !important;
+  }
+
+  code:not(pre > code) {
+    padding: .08em .3em !important;
+    border: 1px solid var(--nyt-hairline) !important;
+    border-radius: 3px !important;
+    background: var(--nyt-paper-alt) !important;
+    color: var(--nyt-ink) !important;
+    font-size: .82em !important;
+  }
+
+  pre {
+    margin: 1.5em 0 1.8em !important;
+    overflow: auto !important;
+    background: transparent !important;
+  }
+
+  pre > div,
+  div.markdown-new-styling pre div[class*="code-block-surface"] {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    border: 1px solid var(--nyt-hairline) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 4px color-mix(in srgb, var(--nyt-ink) 5%, transparent) !important;
+  }
+
+  pre .sticky, pre .sticky > div {
+    font-family: var(--nyt-sans) !important;
+    font-size: 10px !important;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  /* Cores e fundos de código permanecem sob controle do tema ativo. */
+
+  /* ────────────────────────────────────────────────────────────────
+     6. COMPOSITOR E CONTROLES
+     Discretos, mas ainda reconhecíveis como controles.
+     ──────────────────────────────────────────────────────────────── */
+
+  #thread-bottom, #thread-bottom-container {
+    background: var(--nyt-paper) !important;
+  }
+
+  #composer-background, .composer-parent form > div {
+    border: 1px solid var(--nyt-hairline) !important;
+    border-radius: 10px !important;
+    background: var(--composer-surface-primary, var(--nyt-paper)) !important;
+    box-shadow: 0 1px 4px color-mix(in srgb, var(--nyt-ink) 5%, transparent) !important;
+  }
+
+  #composer-background:focus-within, .composer-parent form > div:focus-within {
+    border-color: var(--interactive-border-focus, var(--nyt-link)) !important;
+  }
+
+  #prompt-textarea {
+    background: transparent !important;
+    color: var(--text-primary, var(--nyt-ink)) !important;
+  }
+
+  #prompt-textarea, #prompt-textarea p {
+    font-family: var(--nyt-serif) !important;
+    font-size: var(--nyt-body-size, 16px) !important;
+    line-height: 1.5 !important;
+  }
+
+  #prompt-textarea p.placeholder::before, .placeholder::before {
+    color: var(--nyt-faint) !important;
+    font-family: var(--nyt-sans) !important;
+    font-size: 14px;
+    font-style: normal !important;
+    letter-spacing: 0;
+  }
+
+  #composer-submit-button, button[data-testid="send-button"] {
+    box-shadow: 0 1px 3px color-mix(in srgb, var(--nyt-ink) 5%, transparent) !important;
+  }
+
+  #thread-bottom-container > div:last-child {
+    color: var(--nyt-faint) !important;
+    font-family: var(--nyt-sans) !important;
+    font-size: 10px !important;
+    letter-spacing: .035em;
+  }
+
+  [data-radix-popper-content-wrapper] {
+    z-index: 2147483000 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  [data-radix-popper-content-wrapper] > *,
+  [role="menu"], [role="listbox"], [role="dialog"],
+  [data-radix-menu-content], [data-radix-dropdown-menu-content],
+  [popover]:popover-open {
+    border: 1px solid var(--nyt-hairline) !important;
+    border-radius: 6px !important;
+    background: var(--nyt-paper) !important;
+    color: var(--nyt-ink) !important;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--nyt-ink) 6%, transparent) !important;
+    opacity: 1 !important;
+  }
+
+  [data-radix-dialog-overlay], div[class*="bg-black/"][class*="fixed"] {
+    background: color-mix(in srgb, #121212 48%, transparent) !important;
+  }
+
+  [role="menuitem"], [role="option"],
+  .__menu-item:not([data-sidebar-item]) {
+    border-radius: 3px !important;
+    color: var(--nyt-ink) !important;
+    font-family: var(--nyt-sans) !important;
+    font-size: 14px !important;
+  }
+
+  [role="menuitem"]:hover, [role="option"]:hover {
+    background: var(--nyt-paper-hover) !important;
+  }
+
+  [role="separator"], [data-radix-menu-separator] {
+    height: 1px !important;
+    background: var(--nyt-hairline) !important;
+    opacity: 1 !important;
+  }
+
+  [role="dialog"] h1, [role="dialog"] h2, [role="dialog"] h3 {
+    color: var(--nyt-ink) !important;
+    font-family: var(--nyt-display) !important;
+    font-weight: 700 !important;
+    letter-spacing: -.014em;
+    text-align: left !important;
+  }
+
+  [role="tooltip"], .radix-tooltip-content,
+  div[data-state][class*="tooltip"] {
+    z-index: 2147483000 !important;
+    border: 0 !important;
+    border-radius: 3px !important;
+    background: var(--nyt-ink) !important;
+    color: var(--nyt-paper) !important;
+    font-family: var(--nyt-sans) !important;
+    font-size: 11px !important;
+    letter-spacing: .02em;
+  }
+
+  [role="tooltip"] *, .radix-tooltip-content * {
+    background: transparent !important;
+    color: var(--nyt-paper) !important;
+  }
+
+  input, textarea, select, .input {
+    border: 1px solid var(--nyt-hairline) !important;
+    border-radius: 4px !important;
+    background: var(--nyt-paper) !important;
+    color: var(--nyt-ink) !important;
+    box-shadow: 0 1px 3px color-mix(in srgb, var(--nyt-ink) 4%, transparent) !important;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--nyt-faint) !important;
+    font-family: var(--nyt-sans) !important;
+  }
+
+  body button:not([data-testid="send-button"]):not(#composer-submit-button) {
+    font-family: var(--nyt-sans) !important;
+  }
+
+  .btn-primary, .btn-purple, .btn-ghost {
+    font-family: var(--nyt-sans) !important;
+  }
+
+  .btn-danger-outline {
+    border-color: var(--nyt-danger) !important;
+    color: var(--nyt-danger) !important;
+  }
+
+  * {
+    scrollbar-color: var(--nyt-hairline) transparent;
+    scrollbar-width: thin;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border: 3px solid var(--nyt-paper);
+    border-radius: 999px;
+    background: var(--nyt-hairline);
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* ────────────────────────────────────────────────────────────────
+     7. RESPONSIVIDADE E MOVIMENTO
+     ──────────────────────────────────────────────────────────────── */
+
+  @media (max-width: 767px) {
+    :root {
+      --nyt-body-leading: 1.52;
+      --nyt-turn-space: 42px;
     }
- }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+  }
+}
+
+/* Tipografia editorial na autenticação, preservando suas cores nativas. */
+@-moz-document domain("auth.openai.com") {
+  body, input, button {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+  h1, h2 {
+    font-family: "NYT Cheltenham", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    letter-spacing: -.016em;
+  }
+
+  input, button {
+    border-radius: 4px !important;
+  }
+}
