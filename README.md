@@ -5,6 +5,7 @@ Userstyles amadores e extremamente vibecodeds (lide com seu preconceito sobre o 
 
 - `one-monokai-proxmox-pve.user.css` — One Monokai para Proxmox VE, limitado a `https://192.168.0.100:8006/`.
 - `readwise-reader-prh.user.css` — tipografia da página de imprensa da Penguin Random House no Readwise Reader. Guia abaixo.
+- `redacted-ember.user.css` — skin editorial para o redacted.sh (tema red_dark): Instrument Serif nos títulos, Urbanist na interface, JetBrains Mono nos números.
 
 ---
 
